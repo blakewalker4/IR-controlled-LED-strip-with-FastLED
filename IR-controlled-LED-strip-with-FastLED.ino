@@ -506,19 +506,17 @@ void Wave() { // diy6
 }
 
 void Auto() {
-    uint8_t secondHand = (millis() / 1000) % 60; //ticks like a second hand on a clock
-    static uint8_t startingTime = 0;
-    static uint8_t lastSecond = 99;
-    secondHand = startingTime;
-    // switches effect every 10 seconds
-    if(lastSecond != secondHand) {
-      Serial.println("Current Second: " + String(secondHand));
-      lastSecond = secondHand;
-      if(secondHand ==  0) {TurnOff(); fire_on = true;}
-      if(secondHand == 10) {TurnOff(); cyclon_on = true;}
-      if(secondHand == 20) {TurnOff(); comet_on = true;}
-      if(secondHand == 30) {TurnOff(); twinkle_on = true;}
-      if(secondHand == 40) {TurnOff(); alternate_on = true;}
-      if(secondHand == 50) {TurnOff(); wave_on = true;}
-    }
+  uint8_t secondHand = (millis() / 1000) % 60; //ticks like a second hand on a clock
+  static uint8_t lastSecond = 99;
+  // switches effect every 10 seconds
+  if(lastSecond != secondHand) {
+    Serial.println("Current Second: " + String(secondHand));
+    lastSecond = secondHand;
+    if(secondHand ==  0) {TurnOff(); fire_on = true;}
+    if(secondHand == 10) {TurnOff(); cyclon_on = true;}
+    if(secondHand == 20) {TurnOff(); comet_on = true;}
+    if(secondHand == 30) {TurnOff(); twinkle_on = true;}
+    if(secondHand == 40) {TurnOff(); alternate_on = true;}
+    if(secondHand == 50) {TurnOff(); wave_on = true;}
+  }
 }
